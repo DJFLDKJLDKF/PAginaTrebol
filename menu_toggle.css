@@ -1,0 +1,54 @@
+/* BOTÓN HAMBURGUESA (ESCONDE EN DESKTOP) */
+.menu-toggle {
+  display: none; /* Oculto por defecto */
+  font-size: 2rem; /* Tamaño del ícono hamburguesa */
+  background: none; /* Sin fondo */
+  border: none; /* Sin bordes */
+  cursor: pointer; /* Manito al pasar el mouse */
+  margin-right: 1rem; /* Espacio entre el borde derecho */
+  color: black;
+  z-index: 1000;
+}
+
+/* RESPONSIVE: MÓVILES */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* Mostrar botón hamburguesa en móviles */
+  }
+
+  .menu-horizontal {
+    display: none; /* Ocultar menú horizontal por defecto */
+    flex-direction: column; /* Mostrarlo en vertical al activarse */
+    width: 100%;
+    background-color: rgb(245, 245, 245);
+    position: absolute;
+    top: 90px; /* Debajo del header */
+    left: 0;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .menu-horizontal.active {
+    display: flex; /* Mostrar menú al activar la clase */
+  }
+
+  .menu-horizontal li {
+    border-bottom: 1px solid #ccc; /* Líneas separadoras */
+    width: 100%;
+    padding: 15px 20px;
+  }
+
+  .menu-vertical {
+    position: relative;
+    width: 100%;
+    display: none;
+    background-color: #f0f0f0;
+    margin-top: 10px;
+  }
+
+  .menu-horizontal li:hover .menu-vertical,
+  .menu-horizontal li.active .menu-vertical {
+    display: block;
+  }
+}
